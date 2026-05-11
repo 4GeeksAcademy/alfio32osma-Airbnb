@@ -9,6 +9,8 @@ export interface HomeProperty {
   title: string;
   location: string;
   categoryId: string;
+  latitude: number;
+  longitude: number;
   imageUrl: string;
   nightlyPrice: number;
   rating: number;

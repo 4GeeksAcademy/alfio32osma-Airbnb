@@ -1,9 +1,19 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import CatalogHeader from "@/components/ui/CatalogHeader";
 import PropertyCard from "@/components/ui/PropertyCard";
 import { useCatalogSorting } from "@/hooks/useCatalogSorting";
 import { HomeProperty } from "@/types/home";
+
+const CatalogMap = dynamic(() => import("@/components/ui/CatalogMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full items-center justify-center rounded-3xl bg-zinc-300/40">
+      <span className="text-lg font-semibold tracking-wide text-zinc-700">Cargando mapa...</span>
+    </div>
+  )
+});
 
 interface CatalogPageClientProps {
   properties: HomeProperty[];
@@ -29,11 +39,9 @@ export default function CatalogPageClient({ properties }: CatalogPageClientProps
             ))}
           </div>
 
-          {/* Especificacion: placeholder de mapa en contenedor gris con texto centrado "Mapa". */}
+          {/* Especificacion opcional: mapa interactivo real con un pin por alojamiento. */}
           <aside className="h-72 rounded-3xl border border-zinc-300 bg-zinc-200 lg:sticky lg:top-6 lg:h-[calc(100vh-13rem)]">
-            <div className="flex h-full items-center justify-center rounded-3xl bg-zinc-300/40">
-              <span className="text-lg font-semibold tracking-wide text-zinc-700">Mapa</span>
-            </div>
+            <CatalogMap properties={sortedProperties} />
           </aside>
         </div>
       </section>

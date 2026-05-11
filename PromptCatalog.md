@@ -1,7 +1,7 @@
 # Prompt: Implementación de la Vista de Catálogo (/catalog)
 
 **Instrucción para la IA:**
-Actúa como un Desarrollador Frontend Senior experto en Next.js (App Router) y Tailwind CSS. Tu objetivo es implementar la página de catálogo respetando estrictamente la arquitectura definida en `flujoTrabajo.md`. 
+Actúa como un Desarrollador Frontend Junior en Next.js (App Router) y Tailwind CSS. Tu objetivo es implementar la página de catálogo respetando estrictamente la arquitectura definida en `flujoTrabajo.md`. 
 
 ---
 
