@@ -15,15 +15,17 @@ const variantClasses: Record<ButtonVariant, string> = {
   secondary: "bg-zinc-100 text-zinc-900 hover:bg-zinc-200 focus:ring-zinc-400"
 };
 
-export default function Button({
+const Button = ({
   children,
   variant = "primary",
   className = "",
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <button className={`${baseClasses} ${variantClasses[variant]} ${className}`} {...props}>
       {children}
     </button>
   );
-}
+};
+
+export default Button;

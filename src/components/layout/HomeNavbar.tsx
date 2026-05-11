@@ -5,24 +5,24 @@ interface HomeNavbarProps {
   onSearchChange: (value: string) => void;
 }
 
-function MenuIcon() {
+const MenuIcon = () => {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
     </svg>
   );
-}
+};
 
-function UserIcon() {
+const UserIcon = () => {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2">
       <circle cx="12" cy="8" r="3.5" />
       <path d="M5 19a7 7 0 0 1 14 0" strokeLinecap="round" />
     </svg>
   );
-}
+};
 
-export default function HomeNavbar({ searchValue, onSearchChange }: HomeNavbarProps) {
+const HomeNavbar = ({ searchValue, onSearchChange }: HomeNavbarProps) => {
   return (
     <header className="sticky top-0 z-20 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
@@ -68,4 +68,6 @@ export default function HomeNavbar({ searchValue, onSearchChange }: HomeNavbarPr
       </div>
     </header>
   );
-}
+};
+
+export default HomeNavbar;

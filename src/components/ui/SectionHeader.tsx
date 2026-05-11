@@ -3,7 +3,7 @@ interface SectionHeaderProps {
   subtitle?: string;
 }
 
-function ArrowCircleIcon() {
+const ArrowCircleIcon = () => {
   return (
     <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 text-zinc-700">
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
@@ -12,9 +12,9 @@ function ArrowCircleIcon() {
       </svg>
     </span>
   );
-}
+};
 
-export default function SectionHeader({ title, subtitle }: SectionHeaderProps) {
+const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
   return (
     <header className="mb-3 flex items-start justify-between gap-3">
       <div>
@@ -24,4 +24,6 @@ export default function SectionHeader({ title, subtitle }: SectionHeaderProps) {
       <ArrowCircleIcon />
     </header>
   );
-}
+};
+
+export default SectionHeader;

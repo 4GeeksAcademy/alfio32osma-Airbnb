@@ -1,5 +1,7 @@
-import HomePageClient from "./HomePageClient";
+import HomePageView from "@/components/pages/HomePageView";
 
-export default function HomePage() {
-  return <HomePageClient />;
-}
+const HomePage = () => {
+  return <HomePageView />;
+};
+
+export default HomePage;

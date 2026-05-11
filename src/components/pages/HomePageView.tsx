@@ -6,7 +6,7 @@ import PropertyGrid from "@/components/shared/PropertyGrid";
 import LoadingIndicator from "@/components/ui/LoadingIndicator";
 import { useHomeListings } from "@/hooks/useHomeListings";
 
-export default function HomePageClient() {
+const HomePageView = () => {
   const {
     searchQuery,
     activeCategory,
@@ -20,7 +20,6 @@ export default function HomePageClient() {
   return (
     <main className="min-h-screen bg-[#f7f7f7]">
       <TopNavbar />
-
       <section className="border-b border-zinc-200 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6">
           <label className="relative block">
@@ -35,21 +34,13 @@ export default function HomePageClient() {
           </label>
         </div>
       </section>
-
-      <CategoryFilterBar
-        categories={categories}
-        activeCategory={activeCategory}
-        onCategoryChange={onCategoryChange}
-      />
-
+      <CategoryFilterBar categories={categories} activeCategory={activeCategory} onCategoryChange={onCategoryChange} />
       <section className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">
         <header className="mb-4 flex items-end justify-between">
           <h1 className="text-2xl font-bold tracking-tight text-zinc-900">Alojamientos disponibles</h1>
           <p className="text-sm text-zinc-500">{visibleProperties.length} resultados</p>
         </header>
-
         {isLoading ? <LoadingIndicator /> : <PropertyGrid properties={visibleProperties} />}
-
         {!isLoading && visibleProperties.length === 0 ? (
           <p className="mt-6 rounded-2xl border border-zinc-200 bg-white p-5 text-sm text-zinc-600">
             No se encontraron alojamientos para tu busqueda. Prueba con otro texto o categoria.
@@ -58,4 +49,6 @@ export default function HomePageClient() {
       </section>
     </main>
   );
-}
+};
+
+export default HomePageView;

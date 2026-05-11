@@ -8,7 +8,7 @@ const toneClasses: Record<NonNullable<BadgeTagProps["tone"]>, string> = {
   light: "bg-zinc-100 text-zinc-800"
 };
 
-export default function BadgeTag({ label, tone = "neutral" }: BadgeTagProps) {
+const BadgeTag = ({ label, tone = "neutral" }: BadgeTagProps) => {
   return (
     <span
       className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold leading-none shadow-sm ${toneClasses[tone]}`}
@@ -16,4 +16,6 @@ export default function BadgeTag({ label, tone = "neutral" }: BadgeTagProps) {
       {label}
     </span>
   );
-}
+};
+
+export default BadgeTag;

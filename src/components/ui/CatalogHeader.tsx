@@ -6,7 +6,7 @@ interface CatalogHeaderProps {
   onSortOrderChange: (value: HomePropertySortOrder) => void;
 }
 
-export default function CatalogHeader({ totalResults, sortOrder, onSortOrderChange }: CatalogHeaderProps) {
+const CatalogHeader = ({ totalResults, sortOrder, onSortOrderChange }: CatalogHeaderProps) => {
   return (
     <header className="flex flex-col gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-4 sm:flex-row sm:items-end sm:justify-between sm:px-5">
       <div>
@@ -32,4 +32,6 @@ export default function CatalogHeader({ totalResults, sortOrder, onSortOrderChan
       </label>
     </header>
   );
-}
+};
+
+export default CatalogHeader;

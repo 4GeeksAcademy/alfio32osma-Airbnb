@@ -37,7 +37,7 @@ function getMapCenter(properties: HomeProperty[]): [number, number] {
   return [aggregate.latitude / properties.length, aggregate.longitude / properties.length];
 }
 
-export default function CatalogMap({ properties }: CatalogMapProps) {
+const CatalogMap = ({ properties }: CatalogMapProps) => {
   const center = useMemo(() => getMapCenter(properties), [properties]);
 
   return (
@@ -64,4 +64,6 @@ export default function CatalogMap({ properties }: CatalogMapProps) {
       ))}
     </MapContainer>
   );
-}
+};
+
+export default CatalogMap;

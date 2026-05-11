@@ -5,7 +5,7 @@ interface PropertyCardProps {
   property: HomeProperty;
 }
 
-export default function PropertyCard({ property }: PropertyCardProps) {
+const PropertyCard = ({ property }: PropertyCardProps) => {
   return (
     <Link href={`/rooms/${property.id}`} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 rounded-2xl">
       <article className="rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm transition hover:shadow-md">
@@ -28,4 +28,6 @@ export default function PropertyCard({ property }: PropertyCardProps) {
       </article>
     </Link>
   );
-}
+};
+
+export default PropertyCard;

@@ -1,25 +1,25 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function HomeIcon() {
+const HomeIcon = () => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M3 11.5 12 4l9 7.5" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M6 10.5V20h12v-9.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
-}
+};
 
-function CatalogIcon() {
+const CatalogIcon = () => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
       <rect x="3" y="4" width="18" height="16" rx="2" />
       <path d="M3 10h18" />
     </svg>
   );
-}
+};
 
-function RoomIcon() {
+const RoomIcon = () => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M4 19v-8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8" strokeLinecap="round" />
@@ -28,9 +28,9 @@ function RoomIcon() {
       <path d="M17 12v-1" />
     </svg>
   );
-}
+};
 
-export default function TopNavbar() {
+const TopNavbar = () => {
   const pathname = usePathname();
 
   const navItems = [
@@ -71,4 +71,6 @@ export default function TopNavbar() {
       </nav>
     </header>
   );
-}
+};
+
+export default TopNavbar;

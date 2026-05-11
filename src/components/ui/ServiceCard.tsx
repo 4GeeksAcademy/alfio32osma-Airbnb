@@ -5,7 +5,7 @@ interface ServiceCardProps {
   service: ServiceQuickCard;
 }
 
-export default function ServiceCard({ service }: ServiceCardProps) {
+const ServiceCard = ({ service }: ServiceCardProps) => {
   return (
     <article className="w-[6.4rem] shrink-0">
       <div className="relative overflow-hidden rounded-3xl bg-zinc-200">
@@ -20,4 +20,6 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       <p className="mt-1 text-[15px] leading-4 text-zinc-600">{service.availability}</p>
     </article>
   );
-}
+};
+
+export default ServiceCard;

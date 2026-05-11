@@ -6,11 +6,11 @@ interface CategoryFilterBarProps {
   onCategoryChange: (categoryId: string) => void;
 }
 
-export default function CategoryFilterBar({
+const CategoryFilterBar = ({
   categories,
   activeCategory,
   onCategoryChange
-}: CategoryFilterBarProps) {
+}: CategoryFilterBarProps) => {
   return (
     <section className="border-b border-zinc-200 bg-white">
       <div className="mx-auto flex w-full max-w-6xl gap-2 overflow-x-auto px-4 py-3 sm:px-6">
@@ -37,4 +37,6 @@ export default function CategoryFilterBar({
       </div>
     </section>
   );
-}
+};
+
+export default CategoryFilterBar;

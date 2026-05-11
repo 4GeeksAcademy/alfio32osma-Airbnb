@@ -7,7 +7,7 @@ interface ExploreSectionsProps {
   content: ExploreTabContent;
 }
 
-export default function ExploreSections({ content }: ExploreSectionsProps) {
+const ExploreSections = ({ content }: ExploreSectionsProps) => {
   return (
     <div className="space-y-8 px-4 pb-28 pt-5">
       {content.topServices?.length ? (
@@ -42,4 +42,6 @@ export default function ExploreSections({ content }: ExploreSectionsProps) {
       ))}
     </div>
   );
-}
+};
+
+export default ExploreSections;

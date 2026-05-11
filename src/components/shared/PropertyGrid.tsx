@@ -5,7 +5,7 @@ interface PropertyGridProps {
   properties: HomeProperty[];
 }
 
-export default function PropertyGrid({ properties }: PropertyGridProps) {
+const PropertyGrid = ({ properties }: PropertyGridProps) => {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {properties.map((property) => (
@@ -13,4 +13,6 @@ export default function PropertyGrid({ properties }: PropertyGridProps) {
       ))}
     </div>
   );
-}
+};
+
+export default PropertyGrid;

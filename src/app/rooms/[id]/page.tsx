@@ -1,11 +1,13 @@
-import RoomDetailPageClient from "./RoomDetailPageClient";
+import RoomDetailPageView from "@/components/pages/RoomDetailPageView";
 
 interface RoomDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function RoomDetailPage({ params }: RoomDetailPageProps) {
+const RoomDetailPage = async ({ params }: RoomDetailPageProps) => {
   const { id } = await params;
 
-  return <RoomDetailPageClient roomId={id} />;
-}
+  return <RoomDetailPageView roomId={id} />;
+};
+
+export default RoomDetailPage;
