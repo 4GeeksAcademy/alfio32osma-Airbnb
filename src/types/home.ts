@@ -14,6 +14,8 @@ export interface HomeProperty {
   rating: number;
 }
 
+export type HomePropertySortOrder = "price-asc" | "price-desc";
+
 export interface HomeDataset {
   categories: HomeCategory[];
   properties: HomeProperty[];

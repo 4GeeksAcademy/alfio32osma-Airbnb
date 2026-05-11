@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { getHomeDataset } from "@/services/homeService";
 import { HomeCategory, HomeProperty } from "@/types/home";
+import { buildPathWithUpdatedSearchParams } from "@/utils/searchParams";
 
 interface UseHomeListingsResult {
   searchQuery: string;
@@ -41,16 +42,7 @@ export function useHomeListings(): UseHomeListingsResult {
 
   const updateSearchParam = useCallback(
     (key: string, value: string | null) => {
-      const params = new URLSearchParams(searchParams.toString());
-
-      if (value === null || value.length === 0) {
-        params.delete(key);
-      } else {
-        params.set(key, value);
-      }
-
-      const query = params.toString();
-      const href = query.length > 0 ? `${pathname}?${query}` : pathname;
+      const href = buildPathWithUpdatedSearchParams(pathname, searchParams.toString(), [{ key, value }]);
 
       router.replace(href, { scroll: false });
     },

@@ -1,41 +1,40 @@
-# Prompt de Implementación: Página de Inicio y Catálogo (Airbnb Clone)
+# Prompt: Implementación de la Vista de Catálogo (/catalog)
 
-**Contexto del Proyecto:**
-Estoy construyendo un clon de Airbnb con Next.js (App Router). Mi estructura de carpetas sigue un patrón de "Clean Architecture" con:
-- `/components/ui`: Componentes atómicos (Button, BadgeTag).
-- `/components/layout`: Estructura global (Navbar, BottomNavigation).
-- `/components/views`: Orquestadores de página (HomePageView).
-- `/hooks`: Lógica de negocio reutilizable (useHomeListings).
+**Instrucción para la IA:**
+Actúa como un Desarrollador Frontend Senior experto en Next.js (App Router) y Tailwind CSS. Tu objetivo es implementar la página de catálogo respetando estrictamente la arquitectura definida en `flujoTrabajo.md`. 
 
 ---
 
-## 🛠 Tarea 1: Finalizar Página de Inicio (/)
+## 📋 Requisitos de la Página de Catálogo
 
-Basándote en los requisitos de la imagen, completa la lógica en `useHomeListings.ts` y `HomePageView.tsx`:
+### 1. Cabecera de Resultados y Ordenación
+- **Contador:** Mostrar dinámicamente el número total de alojamientos encontrados.
+- **Control de Ordenación:** Implementar un selector (dropdown o botones) para ordenar por precio: "Ascendente" y "Descendente".
+- **Lógica de Estado:** Utilizar `useState` para gestionar el criterio de ordenación seleccionado y asegurar que la lista de tarjetas se reordene automáticamente al cambiar la opción.
 
-1. **Simulación de Carga:** - Implementar un `useEffect` con `setTimeout` (1 segundo) que inicie `isLoading` en `true` y lo cambie a `false` tras cargar los datos.
-   - Mostrar el componente `LoadingIndicator` mientras `isLoading` sea verdadero.
-2. **Filtros Funcionales:** - Asegurar que la `CategoryFilterBar` use el estado del hook para resaltar visualmente la categoría seleccionada.
-3. **Búsqueda en Tiempo Real:** - El campo de búsqueda debe actualizar el estado local en cada pulsación (`onSearchChange`) y filtrar las tarjetas visibles instantáneamente.
-4. **Grid Responsivo:** - La cuadrícula de alojamientos debe mostrar una sola columna en móvil y expandirse a varias en escritorio.
+### 2. Visualización de Contenido (Reutilización)
+- **Componente de Tarjeta:** Reutilizar obligatoriamente el componente de tarjeta de alojamiento (`PropertyCard.tsx` o `ListingCard.tsx`) ubicado en `src/components/ui`, garantizando consistencia visual con la página de inicio.
 
----
-
-## 🛠 Tarea 2: Implementar Página de Catálogo (/catalog)
-
-Siguiendo los requisitos de la imagen:
-
-1. **Cabecera de Resultados:**
-   - Crear un componente que muestre el número de resultados encontrados.
-   - Implementar un control de ordenación (Ascendente / Descendente por precio) usando `useState`.
-2. **Área de Mapa:**
-   - Añadir un contenedor a la derecha (escritorio) o abajo (móvil) que sirva como placeholder del mapa (un recuadro gris con el texto "Mapa").
-3. **Reutilización:**
-   - Utilizar exactamente el mismo componente de tarjeta de alojamiento definido para la página de inicio para mantener la consistencia.
+### 3. Layout con Mapa (Diseño Dual)
+- **Estructura Responsiva:**
+  - **Escritorio:** Implementar una vista de dos columnas. A la izquierda, la cuadrícula de tarjetas con scroll; a la derecha, un área de mapa fija.
+  - **Móvil:** El área de mapa debe posicionarse debajo de la lista de tarjetas.
+- **Placeholder del Mapa:** Crear un contenedor gris con Tailwind CSS que ocupe el espacio correspondiente y contenga el texto central "Mapa", siguiendo el diseño de placeholder solicitado.
 
 ---
 
-## 📋 Reglas de Salida
-- **Código Completo:** No simplifiques; entrega el código funcional listo para copiar.
-- **Tipado:** Usa las interfaces definidas en `src/types/home.ts` y `explore.ts`.
-- **Estilos:** Usa exclusivamente Tailwind CSS para cumplir con el diseño responsivo solicitado.
+## 📂 Organización de Archivos (Arquitectura)
+
+Debes generar el código para los siguientes archivos siguiendo la ruta de carpetas de mi proyecto:
+1. **`src/app/catalog/page.tsx`**: Archivo de ruta que renderiza el orquestador.
+2. **`src/components/views/CatalogPageView.tsx`**: Componente de vista principal donde reside la lógica de `useState` para la ordenación y el layout dual (tarjetas + mapa).
+3. **`src/components/ui/CatalogHeader.tsx`** (si es necesario): Componente para el contador y el selector de ordenación.
+
+---
+
+## 🛠️ Especificaciones Técnicas
+- **Documentación:** Incluye cada especificación generada como comentario dentro del código o indica que debe añadirse al archivo `context.md` antes de empezar.
+- **Estilos:** Uso exclusivo de Tailwind CSS.
+- **Tipado:** Asegurar el uso de las interfaces definidas en `src/types/home.ts` o `explore.ts`.
+
+**Resultado esperado:** Proporciona el código completo, funcional y sin simplificaciones de los archivos mencionados.
