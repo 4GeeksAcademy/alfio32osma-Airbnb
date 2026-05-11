@@ -1,6 +1,6 @@
 "use client";
 
-import HomeNavbar from "@/components/layout/HomeNavbar";
+import TopNavbar from "@/components/layout/TopNavbar";
 import CategoryFilterBar from "@/components/shared/CategoryFilterBar";
 import PropertyGrid from "@/components/shared/PropertyGrid";
 import LoadingIndicator from "@/components/ui/LoadingIndicator";
@@ -19,7 +19,23 @@ export default function HomePageClient() {
 
   return (
     <main className="min-h-screen bg-[#f7f7f7]">
-      <HomeNavbar searchValue={searchQuery} onSearchChange={onSearchChange} />
+      <TopNavbar />
+
+      <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6">
+          <label className="relative block">
+            <span className="sr-only">Buscar alojamientos</span>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(event) => onSearchChange(event.target.value)}
+              placeholder="Empieza a buscar"
+              className="h-11 w-full rounded-full border border-zinc-300 bg-white px-4 text-sm text-zinc-900 outline-none transition focus:border-zinc-400"
+            />
+          </label>
+        </div>
+      </section>
+
       <CategoryFilterBar
         categories={categories}
         activeCategory={activeCategory}

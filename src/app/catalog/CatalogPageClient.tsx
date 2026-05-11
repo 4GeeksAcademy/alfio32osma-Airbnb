@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import TopNavbar from "@/components/layout/TopNavbar";
 import CatalogHeader from "@/components/ui/CatalogHeader";
 import PropertyCard from "@/components/ui/PropertyCard";
 import { useCatalogSorting } from "@/hooks/useCatalogSorting";
@@ -24,6 +25,7 @@ export default function CatalogPageClient({ properties }: CatalogPageClientProps
 
   return (
     <main className="min-h-screen bg-[#f7f7f7]">
+      <TopNavbar />
       <section className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <CatalogHeader
           totalResults={sortedProperties.length}

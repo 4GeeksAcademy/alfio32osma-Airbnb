@@ -38,4 +38,3 @@ Sigue estas especificaciones detalladas:
 ### Requisitos Técnicos:
 - Usa **Tailwind CSS** para un diseño moderno y responsive.
 - Utiliza **Lucide React** para la iconografía.
-- Estructura el código de forma limpia pero **entrega el archivo completo** en una sola respuesta.
