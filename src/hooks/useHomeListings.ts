@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { getHomeDataset } from "@/services/homeService";
 import { HomeCategory, HomeProperty } from "@/types/home";
 
@@ -15,17 +16,18 @@ interface UseHomeListingsResult {
 }
 
 export function useHomeListings(): UseHomeListingsResult {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const dataset = useMemo(() => getHomeDataset(), []);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("all");
   const [allProperties, setAllProperties] = useState<HomeProperty[]>([]);
-  const [visibleProperties, setVisibleProperties] = useState<HomeProperty[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const searchQuery = searchParams.get("q") ?? "";
+  const activeCategory = searchParams.get("category") ?? "all";
 
   useEffect(() => {
     setIsLoading(true);
     setAllProperties([]);
-    setVisibleProperties([]);
 
     const timer = window.setTimeout(() => {
       setAllProperties(dataset.properties);
@@ -37,10 +39,28 @@ export function useHomeListings(): UseHomeListingsResult {
     };
   }, [dataset.properties]);
 
-  useEffect(() => {
+  const updateSearchParam = useCallback(
+    (key: string, value: string | null) => {
+      const params = new URLSearchParams(searchParams.toString());
+
+      if (value === null || value.length === 0) {
+        params.delete(key);
+      } else {
+        params.set(key, value);
+      }
+
+      const query = params.toString();
+      const href = query.length > 0 ? `${pathname}?${query}` : pathname;
+
+      router.replace(href, { scroll: false });
+    },
+    [pathname, router, searchParams]
+  );
+
+  const visibleProperties = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
-    const filtered = allProperties.filter((property) => {
+    return allProperties.filter((property) => {
       const matchesCategory = activeCategory === "all" || property.categoryId === activeCategory;
       const matchesQuery =
         normalizedQuery.length === 0 ||
@@ -49,10 +69,21 @@ export function useHomeListings(): UseHomeListingsResult {
 
       return matchesCategory && matchesQuery;
     });
-
-    // Mantiene la lista renderizada como estado local y la actualiza en cada pulsacion.
-    setVisibleProperties(filtered);
   }, [activeCategory, allProperties, searchQuery]);
+
+  const onSearchChange = useCallback(
+    (value: string) => {
+      updateSearchParam("q", value.trim().length === 0 ? null : value);
+    },
+    [updateSearchParam]
+  );
+
+  const onCategoryChange = useCallback(
+    (categoryId: string) => {
+      updateSearchParam("category", categoryId === "all" ? null : categoryId);
+    },
+    [updateSearchParam]
+  );
 
   return {
     searchQuery,
@@ -60,7 +91,7 @@ export function useHomeListings(): UseHomeListingsResult {
     visibleProperties,
     isLoading,
     categories: dataset.categories,
-    onSearchChange: setSearchQuery,
-    onCategoryChange: setActiveCategory
+    onSearchChange,
+    onCategoryChange
   };
 }

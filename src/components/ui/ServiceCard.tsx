@@ -5,7 +5,7 @@ interface ServiceCardProps {
   service: ServiceQuickCard;
 }
 
-export default function ServiceCard({ service }: ServiceCardProps): JSX.Element {
+export default function ServiceCard({ service }: ServiceCardProps) {
   return (
     <article className="w-[6.4rem] shrink-0">
       <div className="relative overflow-hidden rounded-3xl bg-zinc-200">

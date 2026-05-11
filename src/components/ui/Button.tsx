@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, JSX, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary";
 
@@ -20,7 +20,7 @@ export default function Button({
   variant = "primary",
   className = "",
   ...props
-}: ButtonProps): JSX.Element {
+}: ButtonProps) {
   return (
     <button className={`${baseClasses} ${variantClasses[variant]} ${className}`} {...props}>
       {children}

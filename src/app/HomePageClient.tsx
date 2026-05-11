@@ -2,11 +2,11 @@
 
 import HomeNavbar from "@/components/layout/HomeNavbar";
 import CategoryFilterBar from "@/components/shared/CategoryFilterBar";
+import PropertyGrid from "@/components/shared/PropertyGrid";
 import LoadingIndicator from "@/components/ui/LoadingIndicator";
-import PropertyCard from "@/components/ui/PropertyCard";
 import { useHomeListings } from "@/hooks/useHomeListings";
 
-export default function HomePageView() {
+export default function HomePageClient() {
   const {
     searchQuery,
     activeCategory,
@@ -32,15 +32,7 @@ export default function HomePageView() {
           <p className="text-sm text-zinc-500">{visibleProperties.length} resultados</p>
         </header>
 
-        {isLoading ? (
-          <LoadingIndicator />
-        ) : (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {visibleProperties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
-          </div>
-        )}
+        {isLoading ? <LoadingIndicator /> : <PropertyGrid properties={visibleProperties} />}
 
         {!isLoading && visibleProperties.length === 0 ? (
           <p className="mt-6 rounded-2xl border border-zinc-200 bg-white p-5 text-sm text-zinc-600">

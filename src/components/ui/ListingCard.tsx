@@ -5,7 +5,7 @@ interface ListingCardProps {
   listing: ExploreListingCard;
 }
 
-function HeartIcon(): JSX.Element {
+function HeartIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
       <path
@@ -17,7 +17,7 @@ function HeartIcon(): JSX.Element {
   );
 }
 
-export default function ListingCard({ listing }: ListingCardProps): JSX.Element {
+export default function ListingCard({ listing }: ListingCardProps) {
   return (
     <article className="w-[11.2rem] shrink-0">
       <div className="relative overflow-hidden rounded-3xl bg-zinc-200">

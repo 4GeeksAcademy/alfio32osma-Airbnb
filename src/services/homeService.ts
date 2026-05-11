@@ -6,7 +6,7 @@ const HOME_DATASET: HomeDataset = {
     { id: "beach", label: "Playa", icon: "🏖️" },
     { id: "luxury", label: "Mansiones", icon: "🏰" },
     { id: "trending", label: "Tendencias", icon: "🔥" },
-    { id: "cabins", label: "Cabanas", icon: "🛖" },
+    { id: "cabins", label: "Cabañas", icon: "🏠" },
     { id: "design", label: "Diseno", icon: "🎨" }
   ],
   properties: [
