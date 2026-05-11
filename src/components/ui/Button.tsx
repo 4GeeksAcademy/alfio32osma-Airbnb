@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, JSX, ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary";
 
