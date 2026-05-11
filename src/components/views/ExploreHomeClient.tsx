@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import BottomNavigation from "@/components/BottomNavigation";
-import CategoryTabs from "@/components/CategoryTabs";
-import ExploreSections from "@/components/ExploreSections";
-import TopNavbar from "@/components/TopNavbar";
+import TopNavbar from "@/components/layout/TopNavbar";
+import BottomNavigation from "@/components/layout/BottomNavigation";
+import CategoryTabs from "@/components/shared/CategoryTabs";
+import ExploreSections from "@/components/shared/ExploreSections";
 import { ExplorePageData, ExploreTab } from "@/types/explore";
 
 interface ExploreHomeClientProps {
   data: ExplorePageData;
 }
 
-export default function ExploreHomeClient({ data }: ExploreHomeClientProps): JSX.Element {
+export default function ExploreHomeClient({ data }: ExploreHomeClientProps) {
   const [activeTab, setActiveTab] = useState<ExploreTab>("stays");
 
   return (

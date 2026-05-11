@@ -8,7 +8,7 @@ interface CategoryTabsProps {
   onTabChange: (tab: ExploreTab) => void;
 }
 
-function HomeIcon(): JSX.Element {
+function HomeIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8">
       <path d="M3 11.5 12 4l9 7.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -17,7 +17,7 @@ function HomeIcon(): JSX.Element {
   );
 }
 
-function BalloonIcon(): JSX.Element {
+function BalloonIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8">
       <path d="M12 3c-3.7 0-6.2 2.8-6.2 6.2 0 3 2 5.8 5 7v3.2l1.2-1 1.2 1V16.2c3-1.2 5-4 5-7C18.2 5.8 15.7 3 12 3Z" />
@@ -26,7 +26,7 @@ function BalloonIcon(): JSX.Element {
   );
 }
 
-function BellIcon(): JSX.Element {
+function BellIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8">
       <path d="M6 10a6 6 0 1 1 12 0v4l2 2H4l2-2v-4Z" strokeLinejoin="round" />
@@ -35,7 +35,7 @@ function BellIcon(): JSX.Element {
   );
 }
 
-function CategoryIcon({ icon }: { icon: ExploreCategory["icon"] }): JSX.Element {
+function CategoryIcon({ icon }: { icon: ExploreCategory["icon"] }) {
   if (icon === "home") {
     return <HomeIcon />;
   }
@@ -47,7 +47,7 @@ function CategoryIcon({ icon }: { icon: ExploreCategory["icon"] }): JSX.Element 
   return <BellIcon />;
 }
 
-export default function CategoryTabs({ categories, activeTab, onTabChange }: CategoryTabsProps): JSX.Element {
+export default function CategoryTabs({ categories, activeTab, onTabChange }: CategoryTabsProps) {
   return (
     <nav className="sticky top-[5.2rem] z-20 border-b border-zinc-200 bg-[#f4f4f4] px-3 py-2">
       <ul className="mx-auto flex max-w-[24rem] items-center justify-around">

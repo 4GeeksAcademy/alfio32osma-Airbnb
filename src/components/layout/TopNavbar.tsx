@@ -1,4 +1,4 @@
-function SearchIcon(): JSX.Element {
+function SearchIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
       <circle cx="11" cy="11" r="7" />
@@ -7,7 +7,7 @@ function SearchIcon(): JSX.Element {
   );
 }
 
-export default function TopNavbar(): JSX.Element {
+export default function TopNavbar() {
   return (
     <header className="sticky top-0 z-30 bg-[#f4f4f4] px-4 pb-3 pt-4">
       <button

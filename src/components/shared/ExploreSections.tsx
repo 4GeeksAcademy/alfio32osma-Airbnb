@@ -7,7 +7,7 @@ interface ExploreSectionsProps {
   content: ExploreTabContent;
 }
 
-export default function ExploreSections({ content }: ExploreSectionsProps): JSX.Element {
+export default function ExploreSections({ content }: ExploreSectionsProps) {
   return (
     <div className="space-y-8 px-4 pb-28 pt-5">
       {content.topServices?.length ? (

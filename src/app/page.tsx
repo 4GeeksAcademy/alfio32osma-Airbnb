@@ -1,8 +1,5 @@
-import ExploreHomeClient from "@/components/ExploreHomeClient";
-import { getExplorePageData } from "@/services/exploreService";
+import HomePageView from "@/components/views/HomePageView";
 
-export default async function HomePage() {
-  const data = await getExplorePageData();
-
-  return <ExploreHomeClient data={data} />;
+export default function HomePage() {
+  return <HomePageView />;
 }
