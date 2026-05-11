@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import {
   AirVent,
+  ArrowLeft,
   Car,
   ChevronLeft,
   ChevronRight,
@@ -108,6 +110,17 @@ export default function RoomDetailPageClient({ roomId }: RoomDetailPageClientPro
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
       <TopNavbar />
+
+      <div className="mb-4 mt-4">
+        <Link
+          href="/catalog"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-900"
+        >
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+          Volver al Catalogo
+        </Link>
+      </div>
+
       <section className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-white">
         <img
           src={currentPhotoUrl}
